@@ -10,7 +10,7 @@ repository:
   description: A simple desktop application using Streamlit and Electron
 
   # A URL with more information about the repository
-  homepage: https://github.com/cbq1024/how-spring-boot3
+  homepage: https://github.com/cbq1024/streamlit-simple
 
   # A comma-separated list of topics to set on the repository
   topics: big-data

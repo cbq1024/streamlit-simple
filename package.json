@@ -1,5 +1,73 @@
 {
-    "scripts": {
-        "start": "streamlit run Hello.py"
+  "name": "streamlib-simple",
+  "author": "cbq1024 <caobq1024@gmail.com>",
+  "license": "MIT",
+  "version": "0.1.0",
+  "description": "A simple desktop application using Streamlit and Electron",
+  "main": "./build/electron/main.js",
+  "scripts": {
+    "dump": "dump-stlite-desktop-artifacts",
+    "serve": "cross-env NODE_ENV=production electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.mcddhub.streamlit-simple",
+    "productName": "Streamlit Simple",
+    "files": [
+      "build/**/*"
+    ],
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "extraResources": [
+      "data",
+      ".streamlit/config.toml"
+    ],
+    "win": {
+      "target": "nsis"
+    },
+    "linux": {
+      "target": "AppImage"
     }
+  },
+  "devDependencies": {
+    "@stlite/desktop": "^0.69.2",
+    "cross-env": "^7.0.3",
+    "electron": "30.0.8",
+    "electron-builder": "^24.9.1"
+  },
+  "stlite": {
+    "desktop": {
+      "embed": false,
+      "files": [
+        "Hello.py",
+        "pages/*.py",
+        "data",
+        ".streamlit/config.toml"
+      ],
+      "entrypoint": "Hello.py",
+      "dependencies": [
+        "numpy",
+        "pydeck",
+        "pandas"
+      ]
+    }
+  },
+  "keywords": [
+    "streamlit",
+    "electron",
+    "desktop-app",
+    "data-visualization",
+    "python"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cbq1024/streamlit-simple.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cbq1024/streamlit-simple/issues"
+  },
+  "homepage": "https://github.com/cbq1024/streamlit-simple"
 }

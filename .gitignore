@@ -166,3 +166,4 @@ cython_debug/
 *.pth
 /playground/book-recommend-by-spark-for-linziyu/temp/
 /demos/torch/data/
+/node_modules/

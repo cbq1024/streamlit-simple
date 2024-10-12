@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 st.set_page_config(
     page_title="Hello",
@@ -28,4 +29,15 @@ st.markdown(
 )
 
 st.title("波兰球 —— 高山下的花环")
-st.markdown("[![Click me](app/static/poland_ball.jpg)](https://streamlit.io)")
+st.image("./data/image/poland_ball.jpg")
+
+st.title("data frame load test")
+
+
+@st.cache_data
+def load_data():
+    return pd.read_csv("./data/uncleaned/books-kaggle-mohamadreza-momeni.csv", on_bad_lines='skip')
+
+
+df = load_data()
+st.dataframe(df.head(10))
